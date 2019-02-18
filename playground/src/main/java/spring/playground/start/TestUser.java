@@ -1,23 +1,30 @@
 package spring.playground.start;
 
-import org.bson.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * TestUser
  */
-public class TestUser extends Document{
+@Document(collection = "test")
+public class TestUser {
 
-    public String User;
-    public String Password;
+    @Id
+    private String id;
+    @Field("user")
+    public String user;
+    @Field("password")
+    public String password;
 
     public TestUser(String user, String password){
-        User = user;
-        Password = password;
+        this.user = user;
+        this.password = password;
     }
 
-    public Document toDocument() {
-        return new Document()
-        .append("user", User)
-        .append("password", Password);
+    public org.bson.Document toDocument() {
+        return new org.bson.Document()
+        .append("user", user)
+        .append("password", password);
     }
 }
