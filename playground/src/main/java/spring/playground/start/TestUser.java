@@ -1,4 +1,4 @@
-package spring.playground.playground;
+package spring.playground.start;
 
 import org.bson.Document;
 

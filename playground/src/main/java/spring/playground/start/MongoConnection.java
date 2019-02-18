@@ -1,6 +1,5 @@
-package spring.playground.playground;
+package spring.playground.start;
 
-import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
