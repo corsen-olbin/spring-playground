@@ -23,6 +23,16 @@ public class MongoConnection {
         mongoClient.close();
     }
 
+    public static TestUser PostUser(TestUser user) {
+        MongoClient mongo = new MongoClient();
+
+        MongoTemplate mongoTemplate = new MongoTemplate(mongo, "test");
+
+        mongoTemplate.save(user, "test");
+
+        return user;
+    }
+
     public static List<TestUser> GetAllUsers() {
 
         MongoClient mongo = new MongoClient();

@@ -4,14 +4,17 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import lombok.Data;
+
 /**
  * TestUser
  */
+@Data
 @Document(collection = "test")
 public class TestUser {
 
     @Id
-    private String id;
+    public String id;
     @Field("user")
     public String user;
     @Field("password")
