@@ -10,7 +10,7 @@ import lombok.Data;
  * TestUser
  */
 @Data
-@Document(collection = "test")
+@Document(collection = "user")
 public class TestUser {
 
     @Id

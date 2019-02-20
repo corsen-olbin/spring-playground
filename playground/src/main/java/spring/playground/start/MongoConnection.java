@@ -7,7 +7,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
 public class MongoConnection {
     public static void PostToMongo() {
@@ -45,5 +48,27 @@ public class MongoConnection {
         
         
         return resultList;
+    }
+
+    public static TestUser GetUser(String id) {
+        MongoClient mongo = new MongoClient();
+
+        MongoTemplate mongoTemplate = new MongoTemplate(mongo, "test");
+        ObjectId objId = new ObjectId(id);
+        Query query = new Query().addCriteria(Criteria.where("_id").is(objId));
+        return mongoTemplate.find(query, TestUser.class).get(0);
+
+    }
+
+    public static void UpdateUser(TestUser user) {
+        MongoTemplate template = getTestTemplate();
+
+        template.save(user);
+    }
+
+    private static MongoTemplate getTestTemplate() {
+        MongoClient mongo = new MongoClient();
+
+        return new MongoTemplate(mongo, "test");
     }
 }
