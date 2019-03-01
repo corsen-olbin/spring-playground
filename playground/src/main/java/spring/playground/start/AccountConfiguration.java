@@ -1,6 +1,5 @@
 package spring.playground.start;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -9,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AccountConfiguration {
 
-    @Bean
-    UserDetailsService UserDetailsService(TestUserRepository accountRepository) {
-        return username -> accountRepository.findByUsername(username).map(account -> {
-            boolean active = account.isActive();
-        })
-    }
+    // @Bean
+    // UserDetailsService UserDetailsService(TestUserRepository accountRepository) {
+    //     return username -> accountRepository.findByUsername(username).map(account -> {
+    //         boolean active = account.isActive();
+    //     })
+    // }
     
 }

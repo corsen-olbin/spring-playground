@@ -1,5 +1,6 @@
 package spring.playground.start;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -21,7 +22,7 @@ public class TestUser {
 
     @Id
     @GeneratedValue
-    public Long id;
+    public ObjectId id;
     @Field("user")
     public String user;
     @Field("password")
